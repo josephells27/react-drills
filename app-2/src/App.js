@@ -3,16 +3,24 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super()
+
+    this.state = {
+      foods:[
+        "bottled water",
+        "cocaine",
+        "vodka"
+      ]
+    }
+  }
   render() {
+    let newFoods = this.state.foods.map((element, index) => {
+      return <h3 key = {index}>{ element }</h3>
+    })
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        { newFoods}
       </div>
     );
   }
